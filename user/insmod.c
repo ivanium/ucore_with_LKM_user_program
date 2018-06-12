@@ -115,6 +115,7 @@ main(int argc, char **argv) {
         write(1, USAGE, strlen(USAGE));
         return 0;
     }
+    argv[1]="hello";
     char * short_name = get_short_name(argv[1]);
     load_dep(short_name);
     load(argv[1], strlen(argv[1]));
