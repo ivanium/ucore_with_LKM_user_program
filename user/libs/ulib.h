@@ -38,6 +38,8 @@ unsigned int gettime_msec(void);
 int __exec(const char *name, const char **argv);
 void init_module(const char *name);
 void cleanup_module(const char *name);
+void mod_add(int a, int b, int *c);
+void mod_mul(int a, int b, int *c);
 
 #define __exec0(name, path, ...)                \
 ({ const char *argv[] = {path, ##__VA_ARGS__, NULL}; __exec(name, argv); })

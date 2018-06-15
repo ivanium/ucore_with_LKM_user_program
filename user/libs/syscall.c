@@ -158,3 +158,13 @@ int
 sys_list_module() {
     return syscall(SYS_list_module);
 }
+
+int
+sys_mod_add(int a, int b, int *c) {
+    return syscall(SYS_mod_add, a, b, c);
+}
+
+int
+sys_mod_mul(int a, int b, int *c) {
+    return syscall(SYS_mod_mul, a, b, c);
+}

@@ -32,6 +32,9 @@
 #define SYS_init_module     200
 #define SYS_cleanup_module  201
 #define SYS_list_module     202
+
+#define SYS_mod_add         210
+#define SYS_mod_mul         211
 /* OLNY FOR LAB6 */
 #define SYS_lab6_set_priority 255
 

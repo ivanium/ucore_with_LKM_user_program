@@ -37,7 +37,8 @@ char * get_short_name(char *name) {
 
 void load(const char *name, int size) {
     if (in_short(name, size)) {
-        snprintf(path, size + KERN_MODULE_ADDITIONAL_LEN + 1, KERN_MODULE_PREFIX"%s"KERN_MODULE_SUFFIX, name);
+        // snprintf(path, size + KERN_MODULE_ADDITIONAL_LEN + 1, KERN_MODULE_PREFIX"%s"KERN_MODULE_SUFFIX, name);
+        snprintf(path, size+1, name);
         write(1, LOADING, strlen(LOADING));
         write(1, path, strlen(path));
         write(1, "\n", 1);
@@ -111,14 +112,21 @@ void load_dep(const char *name) {
 
 int
 main(int argc, char **argv) {
-    if (argc <= 1) {
-        write(1, USAGE, strlen(USAGE));
-        return 0;
-    }
-    argv[1]="hello";
-    char * short_name = get_short_name(argv[1]);
-    load_dep(short_name);
-    load(argv[1], strlen(argv[1]));
+    // if (argc <= 1) {
+    //     write(1, USAGE, strlen(USAGE));
+    //    return 0;
+    // }
+    char *mod_name = "kmod.ko";
+    write(1, mod_name, strlen(mod_name));
+    // char * short_name = get_short_name(mod_name);
+    // load_dep(short_name);
+    load(mod_name, strlen(mod_name));
+    int a = 100, b = 99, c = 0;
+    mod_add(a, b, &c);
+    char buf[50];
+    char *res = "%d + %d = %d\n\0";
+    snprintf(buf, 50, res, a, b, c);
+    write(1, buf, strlen(buf));
     return 0;
 }
 

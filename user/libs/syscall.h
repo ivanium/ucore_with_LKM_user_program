@@ -29,6 +29,8 @@ int sys_dup(int fd1, int fd2);
 int sys_init_module(const char *name);
 int sys_cleanup_module(const char *name);
 int sys_list_module();
+int sys_mod_add(int a, int b, int *c);
+int sys_mod_mul(int a, int b, int *c);
 void sys_lab6_set_priority(uint32_t priority); //only for lab6
 
 

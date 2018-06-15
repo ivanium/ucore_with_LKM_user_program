@@ -94,3 +94,11 @@ void init_module(const char *name) {
 void cleanup_module(const char *name) {
     sys_cleanup_module(name);
 }
+
+void mod_add(int a, int b, int *c) {
+    sys_mod_add(a, b, c);
+}
+
+void mod_mul(int a, int b, int *c) {
+    sys_mod_mul(a, b, c);
+}
